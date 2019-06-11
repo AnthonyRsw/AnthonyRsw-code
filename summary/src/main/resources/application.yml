@@ -10,7 +10,7 @@ spring:
     url: jdbc:mysql://rm-bp1rdn7xoe1661554mo.mysql.rds.aliyuncs.com:3306/data_test
     username: test111
     password: admin888@@##
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver 
   freemarker: 
     suffix: .html
     template-loader-path:
