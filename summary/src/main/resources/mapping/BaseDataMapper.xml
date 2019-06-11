@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致
+	
+ -->
+<mapper namespace="com.pinjingjing.demo.mapper.BaseDataMapper">
+	<select id="findAll" parameterType="Map" resultType="Map">
+		select * from ${tableName}
+		where 1=1
+		<if test="startTime != null and startTime !='' and endTime !=null and endTime !='' ">
+		   AND createTime between #{startTime} and #{endTime}
+		</if>
+		<if test="pageParam != null">
+		   ${pageParam}
+		</if>
+	</select>
+	
+	<select id="findAllCount" parameterType="Map" resultType="int">
+	select count(1) from(
+		select * from ${tableName}
+		where 1=1
+		<if test="startTime != null and startTime !='' and endTime !=null and endTime !='' ">
+		   AND createTime between #{startTime} and #{endTime}
+		</if>
+		) t
+	</select>
+	
+</mapper>

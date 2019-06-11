@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /summary
+  tomcat: 
+    uri-encoding: UTF-8
+spring:
+  datasource:
+    name: localhost
+    url: jdbc:mysql://rm-bp1rdn7xoe1661554mo.mysql.rds.aliyuncs.com:3306/data_test
+    username: test111
+    password: admin888@@##
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  freemarker: 
+    suffix: .html
+    template-loader-path:
+      - classpath:/templates
+  data:
+    neo4j:
+      username: neo4j
+      password: 2217291861
+      uri: http://localhost:7474
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: 
+    jedis:
+      pool:
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+    timeout: 300
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.pinjingjing.demo.model
